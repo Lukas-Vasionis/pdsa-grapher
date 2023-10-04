@@ -25,6 +25,7 @@ Naudojimasis programa (Visiems):
       
 # Reikalingi update:
 * <del>Kadangi norim duot šį scriptą naudoti PDSA vadybininkams, jam reikia sukurti GUI</del>
+* Pridėti requirements.txt
 * Sukurti galimybę grafoje atvaizduoti stulpelius, kurie jungia lenteles
 * Grafą paversti į "directed graph". Kitaip tariant, pridėti rodykles, nurodančias kas jungtyje yra source ir target
 * Uždėt apribojimą ant stuleplių pasirinkimo tab'e "failų įkelimas". Čia, būtina palikti stulpelius "table" ir "column", nes jie yra naudojami grapher tab'o filtruose. Jei šie stulpeliai yra pašalinami tab'e "failų įkelimas", "grapher" tab'e lentelių informacijos nebeatvaizduosi.  
