@@ -15,7 +15,6 @@ def pdsa_radio_components(id_pdsa_sheet, id_radio_sheet_tbl, id_radio_sheet_col)
     ]
     return output_elements
 
-
 def pdsa_dropdown_columns_componenets(id_sheet_type, id_dropdown_sheet_type):
     dropdown_sheet_type = [
         html.Hr(),
@@ -34,8 +33,10 @@ def table_preview():
 
 
 def uzklausa_select_source_target(id_radio_uzklausa_col, tbl_type):
+    dict_tbl_type_mesage={"source": " (usualy column 'table')",
+                          "target": " (usualy column 'reference_table')"}
     output_element = html.Div(children=[
-        dbc.Label(["Select column that represents table of ", html.B(tbl_type)]),
+        dbc.Label(["Select column that represents table of ", html.B(tbl_type), dict_tbl_type_mesage[tbl_type]]),
         dcc.Dropdown(id=id_radio_uzklausa_col, options=[]),
     ])
     return output_element
