@@ -3,13 +3,13 @@ from dash import Dash, dcc, html, dash_table, Input, Output, State, callback
 
 def pdsa_radio_components(id_pdsa_sheet, id_radio_sheet_tbl, id_radio_sheet_col):
     output_elements = [
-        html.H6(["Aptikti sheet'ai: ", html.B(id=id_pdsa_sheet, children=[])]),
+        html.H6(["Detected sheets: ", html.B(id=id_pdsa_sheet, children=[])]),
         html.Div(children=[
-            dbc.Label(["Nurodykite, kuris PDSA sheet'as aprašo ", html.B("lenteles: ")]),
+            dbc.Label(["Which PDSA file sheet describes ", html.B("tables: ")]),
             dcc.RadioItems(id=id_radio_sheet_tbl, options=[]),
         ]),
         html.Div(children=[
-            dbc.Label(["Nurodykite, kuris PDSA sheet'as aprašo ", html.B("stulpelius: ")]),
+            dbc.Label(["Which PDSA file sheet describes ", html.B("columns: ")]),
             dcc.RadioItems(id=id_radio_sheet_col, options=[]),
         ]),
     ]
@@ -19,8 +19,8 @@ def pdsa_radio_components(id_pdsa_sheet, id_radio_sheet_tbl, id_radio_sheet_col)
 def pdsa_dropdown_columns_componenets(id_sheet_type, id_dropdown_sheet_type):
     dropdown_sheet_type = [
         html.Hr(),
-        dbc.Label([f"Pasirinkite, kuriuos PDSA sheet'o '", html.B(id=id_sheet_type, children=["___________"]),
-                   "' stulpelius norite pasilikti švieslentėje"]),
+        dbc.Label([f"Select columns of PDSA sheet '", html.B(id=id_sheet_type, children=["___________"]),
+                   "' that you want to see in the grapher"]),
         dcc.Dropdown(id=id_dropdown_sheet_type,
                      options=[],
                      value=[],
@@ -35,7 +35,7 @@ def table_preview():
 
 def uzklausa_select_source_target(id_radio_uzklausa_col, tbl_type):
     output_element = html.Div(children=[
-        dbc.Label(["Pasirinkite stulpelį, kuris reprecentuoja lentelę ", html.B(tbl_type)]),
+        dbc.Label(["Select column that represents table of ", html.B(tbl_type)]),
         dcc.Dropdown(id=id_radio_uzklausa_col, options=[]),
     ])
     return output_element
@@ -43,7 +43,7 @@ def uzklausa_select_source_target(id_radio_uzklausa_col, tbl_type):
 
 def uzklausa_select_sheet(id_radio_uzklausa_sheet, tbl_type):
     output_element = html.Div(children=[
-        dbc.Label(["Pasirinkite sheet'ą, kuris aprašo ", html.B(tbl_type)]),
+        dbc.Label(["Select sheet that defines ", html.B(tbl_type)]),
         dcc.Dropdown(id=id_radio_uzklausa_sheet, options=[]),
     ])
     return output_element
