@@ -1,4 +1,4 @@
-# Grapher
+# Grapher  
 The following program is an App made on Plotly's Dash framework. The App lets you display and filter relationships between tables of your database as well as display the metadata of those tables.
 Note: The app was tested on Chrome browser.
 
