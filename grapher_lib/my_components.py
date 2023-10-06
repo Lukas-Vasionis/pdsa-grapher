@@ -33,8 +33,8 @@ def table_preview():
 
 
 def uzklausa_select_source_target(id_radio_uzklausa_col, tbl_type):
-    dict_tbl_type_mesage={"source": " (usualy column 'table')",
-                          "target": " (usualy column 'reference_table')"}
+    dict_tbl_type_mesage={"source": " (usually column 'table')",
+                          "target": " (usually column 'reference_table')"}
     output_element = html.Div(children=[
         dbc.Label(["Select column that represents table of ", html.B(tbl_type), dict_tbl_type_mesage[tbl_type]]),
         dcc.Dropdown(id=id_radio_uzklausa_col, options=[]),
