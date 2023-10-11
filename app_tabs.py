@@ -3,17 +3,18 @@ import pandas as pd
 import dash
 from dash import Dash, dcc, html, Output, Input, callback, dash_table, callback_context, State
 import dash_bootstrap_components as dbc
-# from IPython.lib.pretty import pprint
-# from grapher_lib import utils_tabs_callback_funcs as utc
+from grapher_lib import utils_tabs_layouts as uw
+from flask import Flask
+
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 pd.set_option('display.width', None)
 pd.set_option('display.max_colwidth', None)
-from grapher_lib import utils_tabs_layouts as uw
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css', dbc.themes.BOOTSTRAP]
 
-app = dash.Dash(__name__,
+server = Flask(__name__)
+app = dash.Dash(server=server,
                 external_stylesheets=external_stylesheets,
 
                 )
@@ -457,4 +458,4 @@ def create_dash_table_of_displayed_neighbours(data_submitted, n_clicks, G):
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run_server()
