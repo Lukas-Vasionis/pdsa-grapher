@@ -458,4 +458,4 @@ def create_dash_table_of_displayed_neighbours(data_submitted, n_clicks, G):
 
 
 if __name__ == "__main__":
-    app.run_server()
+    app.run_server(port=8080,debug=False)
