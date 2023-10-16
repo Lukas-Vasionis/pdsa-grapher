@@ -16,10 +16,12 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css', dbc.themes
 server = Flask(__name__)
 app = dash.Dash(server=server,
                 external_stylesheets=external_stylesheets,
-
+                routes_pathname_prefix='/pdsa_grapher/',
+                requests_pathname_prefix='/pdsa_grapher/',
                 )
 
-# app.config['suppress_callback_exceptions'] = True
+
+
 
 app.layout = html.Div(style={"margin-left": "20px", "margin-right": "20px"},
                       children=[
