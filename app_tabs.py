@@ -14,7 +14,7 @@ pd.set_option('display.max_colwidth', None)
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css', dbc.themes.BOOTSTRAP]
 
 server = Flask(__name__)
-print("Executing App from Docker image")
+print("Executing App from Docker image ")
 app = dash.Dash(server=server,
                 external_stylesheets=external_stylesheets,
                 routes_pathname_prefix='/pdsa_grapher/',
