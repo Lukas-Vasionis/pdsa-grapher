@@ -397,6 +397,7 @@ def get_network(data_submitted, layout, selected_dropdown_tables, input_list_tab
         #               :]
 
     df_filtered = pd.DataFrame.from_records(dict_filtered)
+    df_filtered = df_filtered.drop_duplicates()
     G = gu.get_fig_cytoscape(df=df_filtered, layout=layout)
     return G
 

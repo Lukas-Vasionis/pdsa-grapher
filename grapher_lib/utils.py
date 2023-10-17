@@ -1,6 +1,6 @@
 # import time
 
-import openpyxl #būtina
+import openpyxl  # būtina
 # import scipy as sp
 import pandas as pd
 import plotly.graph_objects as go
@@ -11,10 +11,8 @@ import base64
 import io
 
 
-def get_fig_cytoscape(df=pd.DataFrame().from_records([{"table_x":"NoneX"},{"table_y":"NoneY"}]),
+def get_fig_cytoscape(df=pd.DataFrame().from_records([{"table_x": "NoneX"}, {"table_y": "NoneY"}]),
                       layout="cola"):
-
-
     cyto.load_extra_layouts()
 
     node_elements = df['table_x'].unique().tolist() + df['table_y'].unique().tolist()
@@ -43,9 +41,29 @@ def get_fig_cytoscape(df=pd.DataFrame().from_records([{"table_x":"NoneX"},{"tabl
                        # 'color': 'black',
                        'line-color': 'grey',
                        'background-color': 'lightblue'  # applies to node which will remain pink if selected :/
-                       }},
+                       }
+             },
+            {
+                'selector': 'node',
+                'style': {
+                    'content': 'data(label)',
+                    'background-color': '#F4D03F'  # Default color for nodes (when deselected)
+                }
+            },
+            {
+                'selector': 'node:selected',
+                'style': {
+                    'background-color': '#f0a505'  # Highlight color for selected nodes
+                },
+            },
             {"selector": "edge",
-             "style": {"weight": 1}},
+             "style": {
+                 'curve-style': 'bezier',
+                 'target-arrow-shape': 'triangle',
+                 "weight": 1,
+                 "background-color":"566573"
+             }
+             }
         ]
     )
 
@@ -65,7 +83,6 @@ def parse_file(contents):
         info_tables = [{"df_columns": list(d.columns), "df": d.to_dict("records")} for d in info_tables]
         xlsx_parse_output = dict(zip(sheets, info_tables))
         xlsx_parse_output = {"file_data": xlsx_parse_output}
-
 
         #     Gaunama struktūra:
         # xlsx_parse_output = {
@@ -90,7 +107,6 @@ def parse_file(contents):
         xlsx_parse_output = "There was an error processing this file."
 
     return xlsx_parse_output
-
 
 ##################################
 # Documentation for cyto
