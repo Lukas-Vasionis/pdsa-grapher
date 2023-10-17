@@ -14,12 +14,15 @@ pd.set_option('display.max_colwidth', None)
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css', dbc.themes.BOOTSTRAP]
 
 server = Flask(__name__)
+print("Executing App from Docker image ")
 app = dash.Dash(server=server,
                 external_stylesheets=external_stylesheets,
-
+                routes_pathname_prefix='/pdsa_grapher/',
+                requests_pathname_prefix='/pdsa_grapher/',
                 )
 
-# app.config['suppress_callback_exceptions'] = True
+
+
 
 app.layout = html.Div(style={"margin-left": "20px", "margin-right": "20px"},
                       children=[
@@ -459,4 +462,4 @@ def create_dash_table_of_displayed_neighbours(data_submitted, n_clicks, G):
 
 
 if __name__ == "__main__":
-    app.run_server()
+    app.run_server(port=8080,debug=False)

@@ -1,12 +1,9 @@
- FROM python:3.11.6
- RUN apt-get update
- RUN apt-get install nano
+FROM python:3.11-alpine
 
- RUN mkdir wd
- WORKDIR wd
- COPY requirements.txt .
- RUN pip3 install -r requirements.txt
+COPY requirements.txt .
+RUN pip3 install -r requirements.txt
 
- COPY app/ ./
+COPY grapher_lib ./grapher_lib
+COPY app_tabs.py ./app_tabs.py
 
- CMD [ "gunicorn", "--workers=5", "--threads=1", "-b 0.0.0.0:80", "app:server"]
+CMD gunicorn -b 0.0.0.0:80 app_tabs:server
