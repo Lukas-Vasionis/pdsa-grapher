@@ -45,7 +45,11 @@ def get_fig_cytoscape(df=pd.DataFrame().from_records([{"table_x":"NoneX"},{"tabl
                        'background-color': 'lightblue'  # applies to node which will remain pink if selected :/
                        }},
             {"selector": "edge",
-             "style": {"weight": 1}},
+             "directed" : "True",
+
+             "style": {"weight": 1,
+                       'curve-style': 'bezier',
+                       'target-arrow-shape': 'triangle'}},
         ]
     )
 

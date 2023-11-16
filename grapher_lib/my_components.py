@@ -1,6 +1,7 @@
 import dash_bootstrap_components as dbc
 from dash import Dash, dcc, html, dash_table, Input, Output, State, callback
 
+
 def pdsa_radio_components(id_pdsa_sheet, id_radio_sheet_tbl, id_radio_sheet_col):
     output_elements = [
         html.H6(["Aptikti sheet'ai: ", html.B(id=id_pdsa_sheet, children=[])]),
@@ -12,8 +13,23 @@ def pdsa_radio_components(id_pdsa_sheet, id_radio_sheet_tbl, id_radio_sheet_col)
             dbc.Label(["Nurodykite, kuris PDSA sheet'as aprašo ", html.B("stulpelius: ")]),
             dcc.RadioItems(id=id_radio_sheet_col, options=[]),
         ]),
+
     ]
     return output_elements
+
+
+def pdsa_dropdown_rename_col_columns_component(df_columns):
+
+    message = "PDSA sheet'e, kuris aprašo stulpelius, nėra stuleplio 'table'. Pervadinkite faile atitinkamą stulpelį į 'table' "
+    # value = None
+
+    output_element = html.Div(children=[
+        html.Br(),
+        html.H2([message]),
+        # dcc.Dropdown(id='dropdown-sheet-col-column-table', options=df_columns, value=value),
+        html.Br(),
+    ])
+    return output_element
 
 
 def pdsa_dropdown_columns_componenets(id_sheet_type, id_dropdown_sheet_type):
@@ -47,9 +63,6 @@ def uzklausa_select_sheet(id_radio_uzklausa_sheet, tbl_type):
         dcc.Dropdown(id=id_radio_uzklausa_sheet, options=[]),
     ])
     return output_element
-
-
-
 
 
 class Tutorials:

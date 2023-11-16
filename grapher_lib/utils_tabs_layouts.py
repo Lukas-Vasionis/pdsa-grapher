@@ -43,6 +43,7 @@ class app_layouts:
                                      html.Div(id='info-uploaded-pdsa',
                                               children=mc.pdsa_radio_components("pdsa-sheets", "radio-sheet-tbl",
                                                                                 "radio-sheet-col")),
+                                     html.Div(id="div-dropdown-sheet-col-column-table"),
 
                                      html.Div(id='column-selection-sheet-tbl',
                                               children=mc.pdsa_dropdown_columns_componenets("id-sheet-tbl",

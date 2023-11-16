@@ -14,7 +14,7 @@ pd.set_option('display.max_colwidth', None)
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css', dbc.themes.BOOTSTRAP]
 
 server = Flask(__name__)
-print("Executing App from Docker image ")
+
 app = dash.Dash(server=server,
                 external_stylesheets=external_stylesheets,
                 routes_pathname_prefix='/pdsa_grapher/',
@@ -400,6 +400,7 @@ def get_network(data_submitted, layout, selected_dropdown_tables, input_list_tab
         #               :]
 
     df_filtered = pd.DataFrame.from_records(dict_filtered)
+    df_filtered = df_filtered.drop_duplicates()
     G = gu.get_fig_cytoscape(df=df_filtered, layout=layout)
     return G
 
