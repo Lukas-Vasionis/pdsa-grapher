@@ -44,7 +44,7 @@ The app is composed of two tabs: File upload and Dashboard (Grapher). Always sta
 * <del>Make input definition more simple - create Graphic User Interface for inputs</del>
 * <del>Add requirements.txt</del>
 * <del>Add dummy data</del>
-* Option to display of columns what join the tables
+* Option: display columns that join the tables
 * Make a directed Graph - display relationships as arrows that show which node is source and which is arrow
 * Add constraint on column choice in File upload tab - make columns "table" and "column" mandatory as they are necessary for filters and displays in the Grapher tab.  
 * Deploy program to server so users with no programming knowledge could use it
